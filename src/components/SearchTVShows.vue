@@ -45,6 +45,15 @@
           </b-alert>
         </b-col>
       </b-row>
+      <b-row v-if="hasAPIError">
+        <b-col>
+          <b-alert 
+            show 
+            variant="danger">
+            Search failed. Please come back later.
+        </b-alert>
+        </b-col>
+      </b-row>
     </b-container>
   </div>
 </template>
@@ -63,6 +72,7 @@ export default {
       searchParameter: '',
       tvShows: [],
       isSearchSuccessful: false,
+      hasAPIError: false,
     }
   },
 
@@ -82,6 +92,8 @@ export default {
       if (tvShows) {
         this.isSearchSuccessful = true;
         this.tvShows = tvShows;
+      } else {
+        this.hasAPIError = true;
       }
     },
 

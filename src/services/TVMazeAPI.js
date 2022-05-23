@@ -11,6 +11,7 @@ const TVMazeAPI = {
       return movies;
     } catch (error) {
       console.error('Error in searchTVShows', error);
+      return null;
     }
   },
 };
